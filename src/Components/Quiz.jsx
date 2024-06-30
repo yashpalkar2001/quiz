@@ -138,7 +138,7 @@ const Quiz = () => {
 
               <li
                 ref={option1}
-                className="w-full border rounded-xl  border-gray-300 p-3 list-none text-lg my-2 flex items-center justify-between"
+                className="w-full border rounded-xl  border-gray-300 p-3 list-none cursor-pointer text-lg my-2 flex items-center justify-between"
                 onClick={(e) => {
                   answerTrue(e, 1);
                 }}
@@ -149,7 +149,7 @@ const Quiz = () => {
               </li>
               <li
                 ref={option2}
-                className="w-full border rounded-xl  border-gray-300 p-3 list-none text-lg my-2"
+                className="w-full border rounded-xl  border-gray-300 p-3 list-none text-lg my-2 cursor-pointer"
                 onClick={(e) => {
                   answerTrue(e, 2);
                 }}
@@ -158,7 +158,7 @@ const Quiz = () => {
               </li>
               <li
                 ref={option3}
-                className="w-full border rounded-xl  border-gray-300 p-3 list-none text-lg my-2"
+                className="w-full border rounded-xl  border-gray-300 p-3 list-none text-lg my-2 cursor-pointer"
                 onClick={(e) => {
                   answerTrue(e, 3);
                 }}
@@ -167,7 +167,7 @@ const Quiz = () => {
               </li>
               <li
                 ref={option4}
-                className="w-full border rounded-xl  border-gray-300 p-3 list-none text-lg my-2"
+                className="w-full border rounded-xl  border-gray-300 p-3 list-none text-lg my-2 cursor-pointer"
                 onClick={(e) => {
                   answerTrue(e, 4);
                 }}

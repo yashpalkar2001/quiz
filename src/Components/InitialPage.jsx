@@ -24,7 +24,7 @@ const InitialPage = () => {
         <div className="mt-3">
           <select
             name="category"
-            className="w-full p-3 my-2 rounded-md text-lg text-center border border-gray-300"
+            className="w-full p-3 my-2 rounded-md text-lg text-center border border-gray-300 cursor-pointer"
             value={formValue.category}
             onChange={handleChange}
           >
@@ -37,7 +37,7 @@ const InitialPage = () => {
 
           <select
             name="dificulty"
-            className="w-full p-3 my-2 rounded-md text-lg text-center border border-gray-300"
+            className="w-full p-3 my-2 rounded-md text-lg text-center border border-gray-300 cursor-pointer"
             value={formValue.dificulty}
             onChange={handleChange}
           >
