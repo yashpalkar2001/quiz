@@ -3,7 +3,6 @@ import Quetions from "./Quetions";
 import { useEffect, useRef, useState } from "react";
 // import { useSearchParams } from "react-router-dom";
 import data from "../assets/data";
-// import check from "../img/check.svg";
 
 const Quiz = () => {
   let [index, setIndex] = useState(0);
@@ -12,6 +11,7 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const [result, setResult] = useState(false);
   const [timer, setTimer] = useState(15);
+  // const [correct, setCorrect] = useState(false);
 
   // API call purpose
 
@@ -47,10 +47,12 @@ const Quiz = () => {
     if (lock == false) {
       if (post.answer === answer) {
         event.target.style.border = "2px solid green";
+
         setScore((preScore) => preScore + 1);
         setLock(true);
       } else {
         event.target.style.border = "2px solid red";
+
         arrayOption[post.answer - 1].current.style.border = "2px solid green";
         setLock(true);
       }
@@ -130,11 +132,17 @@ const Quiz = () => {
         <div className="w-full lg:w-[50%] h-fit border rounded-xl shadow-xl border-gray-400 p-5 list-none">
           {!result ? (
             <div>
-              <div className="flex item-center justify-between">
-                <Quetions Quetion={`${index + 1}. ${post.question}`} />
-                <div className="text-lg text-center mt-5">{timer}</div>
+              <div
+                className={`text-sm  font-bold mt-1 text-end ${
+                  timer <= 5 ? "text-red-400" : "text-black"
+                }`}
+              >
+                {timer} sec to go
               </div>
-              <h4 className="text-sm">Select One:</h4>
+              <div className="flex item-center justify-between ">
+                <Quetions Quetion={`${index + 1}. ${post.question}`} />
+              </div>
+              <i className="text-sm text-gray-700">Select an answer: </i>
 
               <li
                 ref={option1}
@@ -144,12 +152,10 @@ const Quiz = () => {
                 }}
               >
                 {post.option1}
-                {/* <div className="bg-green-500 h-5 w-5 rounded-full"></div> */}
-                {/* <img src={check} alt="" /> */}
               </li>
               <li
                 ref={option2}
-                className="w-full border rounded-xl  border-gray-300 p-3 list-none text-lg my-2 cursor-pointer"
+                className="w-full border rounded-xl  border-gray-300 p-3 list-none text-lg my-2 cursor-pointer flex items-center justify-between"
                 onClick={(e) => {
                   answerTrue(e, 2);
                 }}
@@ -158,7 +164,7 @@ const Quiz = () => {
               </li>
               <li
                 ref={option3}
-                className="w-full border rounded-xl  border-gray-300 p-3 list-none text-lg my-2 cursor-pointer"
+                className="w-full border rounded-xl  border-gray-300 p-3 list-none text-lg my-2 cursor-pointer flex items-center justify-between"
                 onClick={(e) => {
                   answerTrue(e, 3);
                 }}
@@ -167,7 +173,7 @@ const Quiz = () => {
               </li>
               <li
                 ref={option4}
-                className="w-full border rounded-xl  border-gray-300 p-3 list-none text-lg my-2 cursor-pointer"
+                className="w-full border rounded-xl  border-gray-300 p-3 list-none text-lg my-2 cursor-pointer flex items-center justify-between"
                 onClick={(e) => {
                   answerTrue(e, 4);
                 }}
