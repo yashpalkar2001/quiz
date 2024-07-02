@@ -16,19 +16,36 @@ const Quiz = () => {
   // API call purpose
 
   // const [filterParams] = useSearchParams();
-  // filterParams.get("catergory");
+  // filterParams.get("category");
   // filterParams.get("difficulty");
-  // const quizDetail = async () => {
-  //   const response = await fetch(
-  //     `https://opentdb.com/api.php?amount=5&catergory=${filterParams.get(
-  //       "catergory"
-  //     )}&difficulty=${filterParams.get("difficulty")}&type=multiple`
 
-  //     // `https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple`
-  //   );
-  //   const data = await response.json();
-  //   setPosts(data.results);
+  // const quizDetail = () => {
+  //   const res = fetch(
+  //     `https://opentdb.com/api.php?amount=5&category=${filterParams.get(
+  //       "category"
+  //     )}&difficulty=${filterParams.get("difficulty")}&type=multiple`
+  //   )
+  //     .then((value) => value.json())
+  //     .then((value) => {
+  //       return value;
+  //     });
+
+  //   console.log(res);
+
+  //   // const response = await fetch(
+  //   // `https://opentdb.com/api.php?amount=5&catergory=${filterParams.get(
+  //   //   "category"
+  //   // )}&difficulty=${filterParams.get("difficulty")}&type=multiple`
+
+  //   //   `https://opentdb.com/api.php?amount=5&catergory=${filterParams.get(
+  //   //     "category"
+  //   //   )}&difficulty=${filterParams.get("difficulty")}&type=multiple`
+  //   // );
+  //   // const data = await response.json();
+  //   // console.log(data);
+  //   // setPosts(data.results);
   // };
+
   // useEffect(() => {
   //   quizDetail();
   // }, []);
@@ -93,6 +110,7 @@ const Quiz = () => {
       } else if (index < data.length - 1) {
         setIndex(++index);
         setPosts(data[index]);
+        setLock(true);
         setTimer(15);
         arrayOption.map((option) => {
           option.current.style.background = "";
